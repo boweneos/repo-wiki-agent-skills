@@ -8,7 +8,7 @@
 - Location: `/Users/bowen.li/.local/share/fnm/node-versions/v24.12.0/installation/lib/node_modules/mcp-remote`
 
 ### 2. Created Cursor MCP Configuration ✅
-- **File:** `~/Library/Application Support/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json`
+- **File:** `~/.cursor/mcp.json`
 - **Server:** `atlassian-rovo`
 - **Endpoint:** `https://mcp.atlassian.com/v1/mcp`
 
@@ -124,7 +124,7 @@ Once authenticated, you'll have access to:
 
 1. **Check configuration file exists:**
    ```bash
-   cat ~/Library/Application\ Support/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+   cat ~/.cursor/mcp.json
    ```
 
 2. **Verify mcp-remote is installed:**

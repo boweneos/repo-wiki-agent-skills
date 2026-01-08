@@ -28,12 +28,17 @@ This package acts as a proxy between Cursor and the Atlassian Rovo MCP Server.
 
 ### 2. Created Cursor MCP Configuration
 
-**Location:** `~/Library/Application Support/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json`
+**Location:** `~/.cursor/mcp.json`
 
 **Configuration:**
 ```json
 {
   "mcpServers": {
+    "Agent Skills": {
+      "name": "Agent Skills",
+      "url": "https://agentskills.io/mcp",
+      "headers": {}
+    },
     "atlassian-rovo": {
       "command": "npx",
       "args": [
@@ -165,7 +170,7 @@ Once MCP is set up and authenticated, you can:
 
 ### MCP Settings Location
 ```
-~/Library/Application Support/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+~/.cursor/mcp.json
 ```
 
 ### Backup Configuration
@@ -173,8 +178,7 @@ Once MCP is set up and authenticated, you can:
 To backup your MCP configuration:
 
 ```bash
-cp ~/Library/Application\ Support/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json \
-   ~/development/repo-wiki-agent-skills/mcp_settings_backup.json
+cp ~/.cursor/mcp.json ~/development/repo-wiki-agent-skills/mcp_settings_backup.json
 ```
 
 ### Restore Configuration
@@ -182,8 +186,7 @@ cp ~/Library/Application\ Support/Cursor/User/globalStorage/saoudrizwan.claude-d
 To restore from backup:
 
 ```bash
-cp ~/development/repo-wiki-agent-skills/mcp_settings_backup.json \
-   ~/Library/Application\ Support/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+cp ~/development/repo-wiki-agent-skills/mcp_settings_backup.json ~/.cursor/mcp.json
 ```
 
 ## Advanced Configuration
