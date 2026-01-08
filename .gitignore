@@ -52,3 +52,10 @@ htmlcov/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# Organization-specific documentation
+CONFLUENCE_*.md
+*_CONFLUENCE.md
+SETUP_COMPLETE.md
+MCP_FIXED.md
+publish_to_confluence.sh
