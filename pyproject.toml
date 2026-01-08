@@ -1,0 +1,70 @@
+[project]
+name = "repo-wiki-agent-skills"
+version = "1.0.0"
+description = "Agent Skills for generating citation-backed repository wikis"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Agent Skills"}
+]
+keywords = ["documentation", "wiki", "mkdocs", "agent-skills", "ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Documentation",
+    "Topic :: Software Development :: Documentation",
+]
+
+dependencies = [
+    "click>=8.0",
+]
+
+[project.optional-dependencies]
+llm = [
+    "anthropic>=0.18",
+]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "ruff>=0.1",
+]
+all = [
+    "repo-wiki-agent-skills[llm,dev]",
+]
+
+[project.scripts]
+repo-wiki = "scripts.repo_wiki_cli:cli"
+
+[project.urls]
+Homepage = "https://github.com/agent-skills/repo-wiki-agent-skills"
+Documentation = "https://github.com/agent-skills/repo-wiki-agent-skills#readme"
+Repository = "https://github.com/agent-skills/repo-wiki-agent-skills"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["scripts"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

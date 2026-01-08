@@ -1,0 +1,36 @@
+---
+generated_by: repo-wiki-agent
+baseline_commit: "{{BASELINE_COMMIT}}"
+last_updated: "{{TODAY}}"
+---
+
+# {{REPO_NAME}} Documentation
+
+Welcome to the {{REPO_NAME}} documentation.
+
+<!-- BEGIN:REPO_WIKI_MANAGED -->
+## Overview
+
+This documentation is automatically generated and maintained from the repository codebase. 
+All technical claims are backed by citations linking directly to source code.
+
+**Last updated**: {{TODAY}}  
+**Baseline commit**: `{{BASELINE_COMMIT}}`
+
+## Quick Links
+
+- [Getting Started](getting-started/local-dev.md) - Set up your development environment
+- [Architecture](architecture/overview.md) - Understand system design
+- [Components](components/) - Explore individual modules
+- [Operations](operations/build-and-test.md) - Build, test, and deploy
+
+## Components
+
+{{COMPONENT_LIST}}
+
+<!-- END:REPO_WIKI_MANAGED -->
+
+## About This Documentation
+
+This wiki is maintained by the repo-wiki agent skill. Technical claims include citations 
+to specific source files and line ranges for verification.

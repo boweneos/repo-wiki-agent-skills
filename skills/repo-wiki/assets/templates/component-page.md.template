@@ -1,0 +1,34 @@
+---
+generated_by: repo-wiki-agent
+baseline_commit: "{{BASELINE_COMMIT}}"
+last_updated: "{{TODAY}}"
+managed_sections:
+  - "## Overview"
+  - "## Key Interfaces"
+  - "## Configuration"
+---
+
+# {{COMPONENT_NAME}} Component
+
+<!-- BEGIN:REPO_WIKI_MANAGED -->
+## Overview
+
+The `{{COMPONENT_NAME}}` component is located at `{{COMPONENT_PATH}}`.
+
+### Key Files
+
+{{FILE_LIST}}
+
+## Key Interfaces
+
+{{INTERFACES}}
+
+## Configuration
+
+{{CONFIGURATION}}
+
+<!-- END:REPO_WIKI_MANAGED -->
+
+## Notes
+
+(Space for team documentation)

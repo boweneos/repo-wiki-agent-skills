@@ -1,0 +1,39 @@
+---
+generated_by: repo-wiki-agent
+baseline_commit: "{{BASELINE_COMMIT}}"
+last_updated: "{{TODAY}}"
+managed_sections:
+  - "## System Overview"
+  - "## Technology Stack"
+  - "## Key Components"
+---
+
+# Architecture Overview
+
+<!-- BEGIN:REPO_WIKI_MANAGED -->
+## System Overview
+
+{{SYSTEM_DESCRIPTION}}
+
+### Statistics
+
+- **Total Files**: {{TOTAL_FILES}}
+- **Primary Languages**: {{LANGUAGES}}
+
+## Technology Stack
+
+{{TECH_STACK}}
+
+## Key Components
+
+{{COMPONENT_DESCRIPTIONS}}
+
+## Entrypoints
+
+{{ENTRYPOINTS}}
+
+<!-- END:REPO_WIKI_MANAGED -->
+
+## Design Decisions
+
+(Space for architectural decision records)
