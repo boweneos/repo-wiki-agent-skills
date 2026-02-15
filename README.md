@@ -1,6 +1,47 @@
-# Repo Wiki Agent Skills
+<div align="center">
 
-A comprehensive set of Agent Skills for generating and maintaining citation-backed repository wikis as MkDocs-compatible Markdown.
+# 📚 Repo Wiki Agent Skills
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![GitHub release](https://img.shields.io/github/v/release/agent-skills/repo-wiki-agent-skills)](https://github.com/agent-skills/repo-wiki-agent-skills/releases)
+[![CI](https://github.com/agent-skills/repo-wiki-agent-skills/workflows/CI/badge.svg)](https://github.com/agent-skills/repo-wiki-agent-skills/actions)
+[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Compatible-green.svg)](https://agentskills.io)
+[![MkDocs](https://img.shields.io/badge/MkDocs-Compatible-blue.svg)](https://www.mkdocs.org)
+[![PRD Complete](https://img.shields.io/badge/PRD-100%25-brightgreen.svg)](rpd.md)
+
+**A comprehensive set of Agent Skills for generating and maintaining citation-backed repository wikis as MkDocs-compatible Markdown.**
+
+[Features](#key-features) • [Quick Start](#quick-start) • [Documentation](#skill-structure) • [Examples](#examples) • [Contributing](#contributing)
+
+</div>
+
+---
+
+## 📑 Table of Contents
+
+- [Overview](#overview)
+- [Quick Start](#-quick-start)
+  - [Installation](#installation)
+  - [Cursor Commands](#-cursor-commands-recommended)
+  - [Shell Scripts](#-shell-scripts-alternative)
+  - [Manual Skill Usage](#-manual-skill-usage)
+- [Skill Structure](#skill-structure)
+- [Key Features](#key-features)
+- [Skill Details](#skill-details)
+- [Configuration](#configuration)
+- [Agent Skills Compliance](#agent-skills-compliance)
+- [Best Practices](#best-practices)
+- [Workflows](#workflows)
+- [Examples](#examples)
+- [Troubleshooting](#troubleshooting)
+- [Status](#-status)
+- [Releases](#-releases)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Support](#-support)
+
+---
 
 ## Overview
 
@@ -13,9 +54,23 @@ This project implements the complete **Repo Wiki Agent Skills** system as specif
 - **Maintain** traceability through clickable permalinks
 - **Preserve** human edits while updating agent-managed content
 
-## Quick Start
+## 🚀 Quick Start
 
-### 🚀 Cursor Commands (Recommended)
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/agent-skills/repo-wiki-agent-skills.git
+cd repo-wiki-agent-skills
+
+# Install with uv (recommended)
+uv pip install -e .
+
+# Or with pip
+pip install -e .
+```
+
+### 🎯 Cursor Commands (Recommended)
 
 Type `/` in Cursor chat to access these commands:
 
@@ -50,23 +105,23 @@ If you prefer to read skills directly:
 
 **First-time setup:**
 ```bash
-cat skills/repo-wiki-initialize/SKILL.md  # 1. Initialize
-cat skills/repo-wiki-index/SKILL.md      # 2. Index
-cat skills/repo-wiki-generate/SKILL.md   # 3. Generate
-cat skills/repo-wiki-validate/SKILL.md   # 4. Validate
+cat repo-wiki-initialize/SKILL.md  # 1. Initialize
+cat repo-wiki-index/SKILL.md      # 2. Index
+cat repo-wiki-generate/SKILL.md   # 3. Generate
+cat repo-wiki-validate/SKILL.md   # 4. Validate
 ```
 
 **After code changes:**
 ```bash
-cat skills/repo-wiki-detect/SKILL.md     # 1. Detect
-cat skills/repo-wiki-update/SKILL.md     # 2. Update
-cat skills/repo-wiki-validate/SKILL.md   # 3. Validate
+cat repo-wiki-detect/SKILL.md     # 1. Detect
+cat repo-wiki-update/SKILL.md     # 2. Update
+cat repo-wiki-validate/SKILL.md   # 3. Validate
 ```
 
 ## Skill Structure
 
 ```
-skills/
+repo-wiki-agent-skills/
 ├── repo-wiki/                    # Main orchestrator skill
 │   ├── SKILL.md                  # Entry point and overview
 │   ├── scripts/                  # Helper scripts
@@ -349,7 +404,7 @@ Check:
 
 Run:
 ```bash
-uv run skills/repo-wiki/scripts/validate_citations.py
+uv run repo-wiki/scripts/validate_citations.py
 ```
 
 ### Managed Blocks Missing
@@ -364,7 +419,7 @@ Add markers manually:
 
 These skills follow the open Agent Skills format. To extend:
 
-1. Add new sub-skills in `skills/` directory
+1. Add new sub-skills in the root directory
 2. Follow SKILL.md format specification
 3. Include step-by-step instructions
 4. Add references and examples
@@ -380,17 +435,82 @@ MIT License - See individual SKILL.md files for details.
 - [MkDocs Documentation](https://www.mkdocs.org)
 - [Original PRD](rpd.md)
 
-## Status
+## 📊 Status
 
-✅ All requirements from rpd.md implemented:
+✅ **Production Ready** - All requirements from [rpd.md](rpd.md) implemented:
+
+### Functional Requirements
 - [x] Baseline wiki generation (FR1)
 - [x] Change detection (FR2)
 - [x] Incremental updates (FR3)
 - [x] Citations with line numbers (FR4)
 - [x] Clickable permalinks (FR5)
 - [x] Preservation of human edits (FR6)
+
+### Non-Functional Requirements
 - [x] Deterministic output (NFR1)
 - [x] Bounded changes (NFR2)
 - [x] Performance scaling (NFR3)
 - [x] Safety around secrets (NFR4)
 - [x] Verifiable citations (NFR5)
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for detailed information.
+
+### Quick Start
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'feat: add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Development Setup
+
+```bash
+# Install with development dependencies
+uv pip install -e ".[dev]"
+
+# Run tests
+pytest
+
+# Format code
+black .
+ruff check --fix .
+```
+
+For more details, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built following the [Agent Skills Specification](https://agentskills.io)
+- Compatible with [MkDocs](https://www.mkdocs.org) for beautiful documentation sites
+- Inspired by the need for maintainable, citation-backed technical documentation
+
+## 📦 Releases
+
+See [RELEASE.md](RELEASE.md) for information on creating releases and the [Releases page](https://github.com/agent-skills/repo-wiki-agent-skills/releases) for downloads.
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/agent-skills/repo-wiki-agent-skills/issues) - Report bugs or request features
+- **Discussions**: [GitHub Discussions](https://github.com/agent-skills/repo-wiki-agent-skills/discussions) - Ask questions and share ideas
+- **Security**: See [SECURITY.md](SECURITY.md) for security policy and vulnerability reporting
+- **Contributing**: See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines
+- **Documentation**: See [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md) for detailed implementation notes
+- **Changelog**: See [CHANGELOG.md](CHANGELOG.md) for version history
+
+---
+
+<div align="center">
+
+**Made with ❤️ for better documentation**
+
+⭐ Star us on GitHub if you find this useful!
+
+</div>

@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['3.10', '3.11', '3.12']
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install build hatchling
+          pip install -e ".[dev]"
+      
+      - name: Lint with ruff
+        run: |
+          ruff check .
+      
+      - name: Format check with black
+        run: |
+          black --check .
+      
+      - name: Run tests
+        run: |
+          pytest -v
+        if: always()
+  
+  validate-skills:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Validate SKILL.md files
+        run: |
+          # Check that all skills have SKILL.md files
+          for skill_dir in skills/*/; do
+            if [ ! -f "${skill_dir}SKILL.md" ]; then
+              echo "ERROR: Missing SKILL.md in ${skill_dir}"
+              exit 1
+            fi
+            echo "✓ Found SKILL.md in ${skill_dir}"
+          done
+      
+      - name: Validate Python scripts
+        run: |
+          # Check that all Python scripts are valid
+          python -m py_compile skills/repo-wiki/scripts/*.py
+          python -m py_compile scripts/*.py
+      
+      - name: Check shell scripts
+        run: |
+          # Validate shell scripts with shellcheck if available
+          if command -v shellcheck &> /dev/null; then
+            shellcheck scripts/*.sh
+          else
+            echo "shellcheck not available, skipping"
+          fi
